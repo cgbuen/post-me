@@ -1,8 +1,9 @@
 # Post Me
 
-Post my handle to a specific picture of me on Instagram at 20 to 65 second
+Post my handle to a specific picture of me on Instagram at predefined
 intervals.
 
-## Usage
+## Installation / Usage
 
+    yarn install
     node index.js [csrfToken] [sessionId]

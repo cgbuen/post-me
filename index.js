@@ -24,8 +24,17 @@ let options = {
 function callback(err, res, body) {
   console.log(body)
   console.log((new Date()).toUTCString())
+  try {
+    if (JSON.parse(body).status === "fail") {
+      clearInterval(loop);
+      console.log("Response failure. Finishing.")
+    }
+  } catch (e) {
+    clearInterval(loop);
+    console.log("Caught response error. Terminating.")
+  }
 }
 
-setInterval(function() {
+let loop = setInterval(function() {
   request(options, callback)
-}, (Math.random() * 55 + 20)*1000)
+}, (Math.random() * 55 + 60)*1000)
